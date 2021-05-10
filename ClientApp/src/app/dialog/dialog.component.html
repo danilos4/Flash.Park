@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>{{ actionToPerform }} a Car</h1>
+<div mat-dialog-content>
+  Select floor you would like to {{actionToPerform}} a Car:
+{{parkingLocation.city}}
+ <mat-form-field appearance="fill">
+  <mat-label>Choose an option</mat-label>
+  <mat-select  (selectionChange)="changeClient($event.value)">
+    <mat-option *ngFor="let floor of parkingLocation.floors" [value]="floor.floorId">{{floor.floorNumber}}</mat-option>
+  </mat-select>
+</mat-form-field>
+</div>
+
+<button mat-button (click)="performAction()">{{actionToPerform}}</button>
+<button mat-button (click)="cancel()">Cancel</button>
